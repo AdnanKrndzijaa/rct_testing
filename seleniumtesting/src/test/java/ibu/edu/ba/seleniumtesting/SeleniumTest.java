@@ -8,9 +8,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -31,6 +33,8 @@ public class SeleniumTest {
 	public void tearDown() throws Exception {
 		webDriver.quit();
 	}
+	
+	
 	/* 1
 	@Test 
 	public void buckinghamPalaceTest() throws InterruptedException {
@@ -50,6 +54,7 @@ public class SeleniumTest {
 		webDriver.get(baseUrl);
 		Thread.sleep(2000);
 	}*/
+	
 	/* 2
 	@Test 
 	public void buyTicketWindsorCastleTest() throws InterruptedException {
@@ -72,7 +77,7 @@ public class SeleniumTest {
 		Thread.sleep(2000);
 		webDriver.findElement(By.xpath("/html/body/div/div[2]/div/div[2]/div/div[1]/div/div[1]/div/div[2]/div/div[3]/div[5]/div[6]")).click();
 		Thread.sleep(2000);
-		webDriver.findElement(By.xpath("/html/body/div/div[2]/div/div[2]/div/div[1]/div/div[3]/div/div/div[1]/div[5]")).click();
+		webDriver.findElement(By.xpath("/html/body/div/div[2]/div/div[2]/div/div[1]/div/div[3]/div/div/div[2]/div[4]")).click();
 		Thread.sleep(2000);
 		webDriver.findElement(By.xpath("/html/body/div/div[2]/div/div[2]/div/div[2]/button")).click();
 		Thread.sleep(3000);
@@ -153,52 +158,17 @@ public class SeleniumTest {
 		webDriver.findElement(By.xpath("/html/body/div/div[5]/div/div/div[3]/div/div[1]/div/div[4]/div/div/div/div[3]/a")).click();
 		Thread.sleep(2000);
 	}*/
-	
-	/* 4 NE RADIIII
+	/* 4
 	@Test 
-	public void keepInTouchTest() throws InterruptedException {
+	public void redirectingToNewWebsiteTest() throws InterruptedException {
 		webDriver.get(baseUrl);
 		webDriver.manage().window().maximize();
-		webDriver.findElement(By.xpath("/html/body/div[1]/div/p/button")).click();
-		Thread.sleep(1000);
-		webDriver.findElement(By.xpath("/html/body/div/div[2]/div[1]/ul/li[6]/a[1]")).click();
-		Thread.sleep(1000);
-		webDriver.findElement(By.xpath("/html/body/div/div[2]/div[1]/ul/li[6]/span[2]/ul/li[3]/a")).click();
-		Thread.sleep(5000);
-		WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
-		wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[2]/div[2]/input"))
-				).sendKeys("adnan@gmail.com");
-		WebElement email = webDriver.findElement(By.cssSelector("#textbox-11"));
-		email.sendKeys("adnan@gmail.com");
-		Thread.sleep(1000);
-		webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div[2]/div/div/span/input")).click();
-		Select title = new Select(webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[6]/div[2]/div/select")));
-		title.selectByVisibleText("Mr");
-		Thread.sleep(1000);
-		WebElement firstName = webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[7]/div[2]/input"));
-		firstName.sendKeys("Adnan");
-		Thread.sleep(1000);
-		WebElement lastName = webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[8]/div[2]/input"));
-		lastName.sendKeys("Adnan");
-		Thread.sleep(1000);
-		Select country = new Select(webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[9]/div[2]/div/select")));
-		country.selectByVisibleText("Bosnia and Herzegovina");
-		Thread.sleep(1000);
-		WebElement postalCode = webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[10]/div[2]/input"));
-		postalCode.sendKeys("71000");
-		Thread.sleep(1000);
-		webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[13]/fieldset/div/div/div/div[2]/div/span/input")).click();
-		webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[15]/fieldset/div/div/div/div[1]/div/span/input")).click();
-		webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[16]/fieldset/div/div/div/div[1]/div/span/input")).click();
-		webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[17]/fieldset/div/div/div/div[1]/div/span/input")).click();
-		webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[19]/fieldset/div/div/div/div[1]/div/span/input")).click();
-		webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[20]/fieldset/div/div/div/div[1]/div/span/input")).click();
-		webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[21]/fieldset/div/div/div/div[1]/div/span/input")).click();
-		webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[22]/fieldset/div/div/div/div[1]/div/span/input")).click();
-		webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[23]/fieldset/div/div/div/div[2]/div/span/input")).click();
 		Thread.sleep(2000);
-		webDriver.findElement(By.xpath("/html/body/form/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div[2]/div/div/span/input")).click();
+		JavascriptExecutor js = (JavascriptExecutor) webDriver;
+		js.executeScript("window.scrollBy(0, 600)");
+		Thread.sleep(2000);
+		js.executeScript("window.location = 'https://www.google.com'");
+		Thread.sleep(4000);
 	}*/
 	
 	/* 5
@@ -288,7 +258,7 @@ public class SeleniumTest {
 	
 	/* 9
 	@Test 
-	public void login() throws InterruptedException {
+	public void loginTest() throws InterruptedException {
 		webDriver.get(baseUrl);
 		webDriver.manage().window().maximize();
 		Thread.sleep(2000);
@@ -313,7 +283,7 @@ public class SeleniumTest {
 	
 	/* 10
 	@Test 
-	public void forgotPassword() throws InterruptedException {
+	public void forgotPasswordTest() throws InterruptedException {
 		webDriver.get(baseUrl);
 		webDriver.manage().window().maximize();
 		Thread.sleep(2000);
@@ -335,64 +305,86 @@ public class SeleniumTest {
 		Thread.sleep(2000);
 	}*/
 	
-	/* 11 NE RADIIIII
+	/* 11
 	@Test 
-	public void jobOpportunitiesTest() throws InterruptedException {
+	public void displayAlertDialogTest() throws InterruptedException {
+		webDriver.get(baseUrl);
+		webDriver.manage().window().maximize();
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) webDriver;
+		js.executeScript("alert('Welcome to the Royal Collection Trust website!')");
+		Thread.sleep(4000);
+	}*/
+	
+	/* 12
+	@Test 
+	public void changingWindowSizeTest() throws InterruptedException {
+		webDriver.get(baseUrl);
+		webDriver.manage().window().maximize();
+		Thread.sleep(2000);
+		webDriver.close();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--windiow-size=1024,768");
+		webDriver = new ChromeDriver(options);
+		Thread.sleep(5000);
+	}*/
+	
+	/* 13
+	@Test 
+	public void aboutUsAndLiteratureMusicTest() throws InterruptedException {
 		webDriver.get(baseUrl);
 		webDriver.manage().window().maximize();
 		Thread.sleep(2000);
 		webDriver.findElement(By.xpath("/html/body/div[1]/div/p/button")).click();
 		Thread.sleep(1000);
-		webDriver.findElement(By.xpath("/html/body/div[2]/div[6]/div/div/div[2]/div/div[1]/div[2]/ul/li[6]/a")).click();
-		Thread.sleep(3000);
-		//ovdje je problem, kaze da ga ne moze pronaci/locirati
-		webDriver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div[6]/div[2]/div/div[2]/div/span/a")).click();
+		webDriver.findElement(By.xpath("/html/body/div/div[2]/div[1]/ul/li[4]/a[1]")).click();
 		Thread.sleep(2000);
-		WebElement firstJob = webDriver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div[5]/div[2]/div/div[1]/div/a"));
-		firstJob.click();
+		webDriver.findElement(By.xpath("/html/body/div/div[4]/div/div/div[1]/div[1]/div[2]/p/a")).click();
 		Thread.sleep(2000);
-		webDriver.navigate().back();
+		webDriver.findElement(By.xpath("/html/body/div/div[5]/div/div/div[2]/div/div/div/div/div[1]/label")).click();
 		Thread.sleep(2000);
-		webDriver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div[6]/div[1]/a[2]")).click();
+		webDriver.findElement(By.xpath("/html/body/div/div[5]/div/div/div[2]/div/div/div/div/div[2]/ul/li[11]/div/div[1]/i")).click();
 		Thread.sleep(2000);
-		WebElement openQ = webDriver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div[7]/div/ul/li[2]/h6/a"));
-		openQ.click();
+		webDriver.findElement(By.xpath("/html/body/div/div[5]/div/div/div[2]/div/div/div/div/div[2]/ul/li[11]/div/div[2]/ul/li[1]/div/div[1]/i")).click();
 		Thread.sleep(2000);
-		WebElement closeQ = webDriver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div[7]/div/ul/li[2]/h6/a"));
-		closeQ.click();
-		Thread.sleep(2000);
-		WebElement logoLink = webDriver.findElement(By.xpath("/html/body/div[2]/div[2]/div[1]/a/img"));
-		logoLink.click();
+		webDriver.findElement(By.xpath("/html/body/div/div[5]/div/div/div[2]/div/div/div/div/div[2]/ul/li[11]/div/div[2]/ul/li[1]/div/div[2]/ul/li[3]/a")).click();
 		Thread.sleep(2000);
 	}*/
 	
-	/* 12 NE RADIII
+	/* 14
 	@Test 
-	public void contactFormTest() throws InterruptedException {
+	public void aboutAnnualReportsTest() throws InterruptedException {
 		webDriver.get(baseUrl);
 		webDriver.manage().window().maximize();
 		Thread.sleep(2000);
 		webDriver.findElement(By.xpath("/html/body/div[1]/div/p/button")).click();
 		Thread.sleep(1000);
-		webDriver.findElement(By.xpath("/html/body/div[2]/div[6]/div/div/div[1]/div/div/ul/li[5]/a/span")).click();
+		webDriver.findElement(By.xpath("/html/body/div/div[2]/div[1]/ul/li[6]/a[1]")).click();
 		Thread.sleep(2000);
-		//OVDJE NE RADI OVAJ SEECT DIO KAD BIRA KOGA CE KONTAKTIRATI
-		Select search = new Select(webDriver.findElement(By.xpath("/html/body/div[2]/div[5]/div/div/div[5]/div/div/div/div/div/div/input")));
-		search.selectByVisibleText("Marketing");
+		webDriver.findElement(By.xpath("/html/body/div/div[2]/div[1]/ul/li[6]/span[2]/ul/li[2]/a")).click();
 		Thread.sleep(2000);
-		WebElement fullName = webDriver.findElement(By.xpath("/html/body/div/form/div[1]/div/input"));
-		fullName.sendKeys("Adnan Adnan");
+		webDriver.findElement(By.xpath("/html/body/div/div[5]/div/div/div[3]/div/div/div[1]/div[1]/a/div/picture/img")).click();
 		Thread.sleep(2000);
-		WebElement email = webDriver.findElement(By.xpath("/html/body/div/form/div[2]/div/input"));
-		email.sendKeys("adnan@gmail.com");
+		webDriver.findElement(By.xpath("/html/body/div/div[5]/div/div/div[6]/div/div[1]/div/div[2]/a")).click();
+		Thread.sleep(3000);
+	}*/
+	
+	/* 15
+	@Test 
+	public void checkTimeOnExhibitionTalkTest() throws InterruptedException {
+		webDriver.get(baseUrl);
+		webDriver.manage().window().maximize();
 		Thread.sleep(2000);
-		WebElement reason = webDriver.findElement(By.xpath("/html/body/div/form/div[3]/div/input"));
-		reason.sendKeys("Adnan marketing");
+		webDriver.findElement(By.xpath("/html/body/div[2]/div[2]/div[1]/ul/li[6]/a[1]")).click();
+		Thread.sleep(1000);
+		webDriver.findElement(By.xpath("/html/body/div[2]/div[2]/div[1]/ul/li[6]/span[2]/ul/li[4]/ul/li[1]/a")).click();
 		Thread.sleep(2000);
-		WebElement message = webDriver.findElement(By.xpath("/html/body/div/form/div[4]/div/textarea"));
-		message.sendKeys("Hello there");
-		Thread.sleep(2000);
-		webDriver.findElement(By.xpath("/html/body/div/form/div[8]/div[2]/input")).click();
-		Thread.sleep(2000);
+		webDriver.findElement(By.xpath("/html/body/div/div[2]/div/div/div/div[2]/button")).click();
+		Thread.sleep(3000);
+		webDriver.findElement(By.xpath("/html/body/div[2]/div[5]/div[3]/div/div/div/div/div[4]/div/div/div/div[2]/div/div/div/div/div[1]/div/div[1]/div/a/div/img")).click();
+		Thread.sleep(3000);
+		String time = webDriver.findElement(By.xpath("/html/body/div[2]/div[5]/div[1]/div[3]/div/div/div[4]/div/div/ul/li[3]")).getText();
+		assertTrue(time.contains("11"));
+		Thread.sleep(3000);
 	}*/
 }
